@@ -5,9 +5,6 @@
 		Introduction to Programming
 		Project 2 - Text Based Game-->
 	<head>
-		<style>
-			
-		</style>
 		<title>
 			The Lab
 		</title>
@@ -17,72 +14,123 @@
 			var backward = 0
 			var left = 0
 			var right = 0
+			var northPoints = 0
+			var southPoints = 0
+			var eastPoints = 0
+			var westPoints = 0
+			var centerPoints = 0
+			var totalPoints = 0
 			function myNorthFunction(){
-				if(foward > 0 && backward == 0){
-					backward = backward + 1
-					foward = foward - 1
+          		var targetMainTextArea = document.getElementById("taMain");
+          		var targetPointTextArea = document.getElementById("pointScreen");
+				if(foward > 0 && backward === 0){
+					backward +=1;
+					foward -=1;
 					document.getElementById("myEastBtn").disabled = false;
 					document.getElementById("myWestBtn").disabled = false;
 					document.getElementById("mySouthBtn").disabled = false;
-					}else if(backward > 0 && foward == 0){
-						document.getElementById("mySouthBtn").disabled = false;
-						document.getElementById("myNorthBtn").disabled = true;
-						}else{
-							backward = backward + 1
-							foward = foward - 1
-							document.getElementById("mySouthBtn").disabled = false;
-							document.getElementById("myNorthBtn").disabled = true;
-							document.getElementById("myEastBtn").disabled = true;
-							document.getElementById("myWestBtn").disabled = true;
+					targetMainTextArea.value += "You enter a room with four doors going in different directions.\n\n"
+					if(centerPoints === 0){
+						totalPoints += 5
+						centerPoints += 1
+						targetPointTextArea.value = "total points: " + totalPoints
+					}else{
+						totalPoints +=0
+					//Questionable code below:
+					//}else if(backward > 0 && foward === 0){
+						//document.getElementById("mySouthBtn").disabled = false;
+						//document.getElementById("myNorthBtn").disabled = true;
+					}
+				}else{
+					backward +=1;
+					foward -=1;
+					document.getElementById("mySouthBtn").disabled = false;
+					document.getElementById("myNorthBtn").disabled = true;
+					document.getElementById("myEastBtn").disabled = true;
+					document.getElementById("myWestBtn").disabled = true;
+					targetMainTextArea.value += "You go into the north door to find a room full of computers.\n\n"
+					if(northPoints === 0){
+						totalPoints += 5
+						northPoints += 1
+						targetPointTextArea.value = "total points: " + totalPoints
+					}else{
+						totalPoints +=0
 					}
 				}
+			}
 			function mySouthFunction() {
-				if(backward > 0 && foward == 0){
-					backward = backward - 1
-					foward = foward + 1
+          		var targetMainTextArea = document.getElementById("taMain");
+				if(backward > 0 && foward === 0){
+					backward -=1;
+					foward +=1;
 					document.getElementById("myNorthBtn").disabled = false;
 					document.getElementById("myEastBtn").disabled = false;
 					document.getElementById("myWestBtn").disabled = false;
-					}else if(foward > 0 && backward == 0){
-						document.getElementById("mySouthBtn").disabled = true;
-						document.getElementById("myEastBtn").disabled = true;
-						document.getElementById("myWestBtn").disabled = true;
-						document.getElementById("myNorthBtn").disabled = false;
-						}else{
-							backward = backward - 1
-							foward = foward + 1
-							document.getElementById("mySouthBtn").disabled = true;
-							document.getElementById("myNorthBtn").disabled = false;
-							document.getElementById("myEastBtn").disabled = true;
-							document.getElementById("myWestBtn").disabled = true;
-							}
+					targetMainTextArea.value += "You re-enter the room with four doors.\n\n"
+					//Questionable code below
+					//}else if(foward > 0 && backward === 0){
+						//document.getElementById("mySouthBtn").disabled = true;
+						//document.getElementById("myEastBtn").disabled = false;
+						//document.getElementById("myWestBtn").disabled = false;
+						//document.getElementById("myNorthBtn").disabled = false;
+				}else{
+					backward -=1;
+					foward +=1;
+					document.getElementById("mySouthBtn").disabled = true;
+					document.getElementById("myNorthBtn").disabled = false;
+					document.getElementById("myEastBtn").disabled = true;
+					document.getElementById("myWestBtn").disabled = true;
+					targetMainTextArea.value += "Your re-enter the room you were dazed and confused in, only to find nothing interesting.\n\n"
+				}
 			}
 			function myEastFunction(){
-				if(foward == 1 && backward == 1 && left == 0 && right == 0){
-					right = right + 1
+				var targetMainTextArea = document.getElementById("taMain");
+          		var targetPointTextArea = document.getElementById("pointScreen");
+				if(foward === 1 && backward === 1 && left === 0 && right === 0){
+					right +=1;
 					document.getElementById("mySouthBtn").disabled = true
 					document.getElementById("myNorthBtn").disabled = true
 					document.getElementById("myEastBtn").disabled = true
-					}else if(foward == 1 && backward == 1 && left > 0 && right == 0){
-						left = left - 1
-						document.getElementById("mySouthBtn").disabled = false
-						document.getElementById("myNorthBtn").disabled = false
-						document.getElementById("myWestBtn").disabled = false
-						}
+					targetMainTextArea.value += "You enter the room to the east only to find a metal door.\n\n"
+					if(eastPoints === 0){
+						totalPoints += 5
+						eastPoints += 1
+						targetPointTextArea.value = "total points: " + totalPoints
+					}else{
+						totalPoints +=0
+					}
+				}else{
+					left -=1;
+					document.getElementById("mySouthBtn").disabled = false
+					document.getElementById("myNorthBtn").disabled = false
+					document.getElementById("myWestBtn").disabled = false
+					targetMainTextArea.value += "You re-enter the room with four doors.\n\n"
+				}
 			}
 			function myWestFunction(){
-				if(foward == 1 && backward == 1 && left == 0 && right == 0){
-					left = left + 1
+				var targetMainTextArea = document.getElementById("taMain");
+          		var targetPointTextArea = document.getElementById("pointScreen");
+				if(foward === 1 && backward === 1 && left === 0 && right === 0){
+					left +=1;
 					document.getElementById("mySouthBtn").disabled = true
 					document.getElementById("myNorthBtn").disabled = true
 					document.getElementById("myWestBtn").disabled = true
-					}else if(foward == 1 && backward == 1 && left == 0 && right > 0){
-						right = right - 1
-						document.getElementById("mySouthBtn").disabled = false
-						document.getElementById("myNorthBtn").disabled = false
-						document.getElementById("myEastBtn").disabled = false
-						}
+					targetMainTextArea.value += "You enter the room to the west to find a lounge empty of all life.\n\n"
+					if(westPoints === 0){
+						totalPoints += 5
+						westPoints += 1
+						targetPointTextArea.value = "total points: " + totalPoints
+					}else{
+						totalPoints +=0
+					}
+				}else{
+					right -=1;
+					document.getElementById("mySouthBtn").disabled = false
+					document.getElementById("myNorthBtn").disabled = false
+					document.getElementById("myEastBtn").disabled = false
+					targetMainTextArea.value += "You re-enter the room with four doors.\n\n"
 				}
+			}
 				
 		</script>
 	</head>
@@ -90,7 +138,12 @@
 		<h3>
 			The Lab
 		</h3>
-		<textarea rows="10" cols ="50" id="taMain"></textarea>
+		<textarea rows="10" cols ="50" id="taMain">You awake dazed and confused, you look around to 
+see you laying on a pile of glass in a white room.
+
+</textarea>
+
+		<textarea rows="2" cols = "8" id="pointScreen"></textarea>
 		<br>
 		<br>
 		<input 	type="button"
@@ -120,9 +173,6 @@
 		<address>
 			<a href="mailto:brandonoh2938@gmail.com">
 			Send me an email by clicking me.
-			<!--
-				http://www.w3schools.com/tags/tag_address.asp
-			-->
 			</a>
 		</address>
 	</body>	
