@@ -29,7 +29,7 @@
 					document.getElementById("myEastBtn").disabled = false;
 					document.getElementById("myWestBtn").disabled = false;
 					document.getElementById("mySouthBtn").disabled = false;
-					targetMainTextArea.value += "You enter a room with four doors going in different directions.\n\n"
+					targetMainTextArea.value = "You enter a room with four doors going in different directions.\n\n"
 					if(centerPoints === 0){
 						totalPoints += 5
 						centerPoints += 1
@@ -48,7 +48,7 @@
 					document.getElementById("myNorthBtn").disabled = true;
 					document.getElementById("myEastBtn").disabled = true;
 					document.getElementById("myWestBtn").disabled = true;
-					targetMainTextArea.value += "You go into the north door to find a room full of computers.\n\n"
+					targetMainTextArea.value = "You go into the north door to find a room full of computers.\n\n"
 					if(northPoints === 0){
 						totalPoints += 5
 						northPoints += 1
@@ -66,7 +66,7 @@
 					document.getElementById("myNorthBtn").disabled = false;
 					document.getElementById("myEastBtn").disabled = false;
 					document.getElementById("myWestBtn").disabled = false;
-					targetMainTextArea.value += "You re-enter the room with four doors.\n\n"
+					targetMainTextArea.value = "You re-enter the room with four doors.\n\n"
 					//Questionable code below
 					//}else if(foward > 0 && backward === 0){
 						//document.getElementById("mySouthBtn").disabled = true;
@@ -80,7 +80,7 @@
 					document.getElementById("myNorthBtn").disabled = false;
 					document.getElementById("myEastBtn").disabled = true;
 					document.getElementById("myWestBtn").disabled = true;
-					targetMainTextArea.value += "Your re-enter the room you were dazed and confused in, only to find nothing interesting.\n\n"
+					targetMainTextArea.value = "Your re-enter the room you were dazed and confused in, only to find nothing interesting.\n\n"
 				}
 			}
 			function myEastFunction(){
@@ -91,7 +91,7 @@
 					document.getElementById("mySouthBtn").disabled = true
 					document.getElementById("myNorthBtn").disabled = true
 					document.getElementById("myEastBtn").disabled = true
-					targetMainTextArea.value += "You enter the room to the east only to find a metal door.\n\n"
+					targetMainTextArea.value = "You enter the room to the east only to find a metal door.\n\n"
 					if(eastPoints === 0){
 						totalPoints += 5
 						eastPoints += 1
@@ -104,7 +104,7 @@
 					document.getElementById("mySouthBtn").disabled = false
 					document.getElementById("myNorthBtn").disabled = false
 					document.getElementById("myWestBtn").disabled = false
-					targetMainTextArea.value += "You re-enter the room with four doors.\n\n"
+					targetMainTextArea.value = "You re-enter the room with four doors.\n\n"
 				}
 			}
 			function myWestFunction(){
@@ -115,7 +115,7 @@
 					document.getElementById("mySouthBtn").disabled = true
 					document.getElementById("myNorthBtn").disabled = true
 					document.getElementById("myWestBtn").disabled = true
-					targetMainTextArea.value += "You enter the room to the west to find a lounge empty of all life.\n\n"
+					targetMainTextArea.value = "You enter the room to the west to find a lounge empty of all life.\n\n"
 					if(westPoints === 0){
 						totalPoints += 5
 						westPoints += 1
@@ -128,7 +128,7 @@
 					document.getElementById("mySouthBtn").disabled = false
 					document.getElementById("myNorthBtn").disabled = false
 					document.getElementById("myEastBtn").disabled = false
-					targetMainTextArea.value += "You re-enter the room with four doors.\n\n"
+					targetMainTextArea.value = "You re-enter the room with four doors.\n\n"
 				}
 			}
 				
